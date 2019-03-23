@@ -1,4 +1,8 @@
+# ####################################################
 # R Programming Course
+# #####################################################
+
+########### Week 1 ####################################
 
 dat <- unzip("quiz1_data.zip")
 dat <- read.csv("hw1_data.csv")
@@ -33,9 +37,23 @@ mean(dat[which(dat$Ozone > 31 & dat$Temp > 90), ]$Solar.R)
 # What is the mean of "Temp" when "Month" is equal to 6?
 mean(dat[which(dat$Month == 6),]$Temp)
 
+# Missing values - REMOVE THEM! or just extract the non-missing values
+x <- c(1,2,NA,4,NA,5)
+bad <- is.na(x)
+x[!bad]
 
+# Waht if there are multiple things and you want to take the subset with no missing values
+x <- c(1,2,NA, 4, NA, 5)
+y <- c("a", "b", NA, "d", NA, "f")
+good <- complete.cases(x,y)
+good
+x[good]
+y[good]
 
-
+# Can also use complete.cases function to remove missing values from dataframes
+airquality[1:6,]
+good <- complete.cases(airquality)
+airquality[good,][1:6, ]
 
 
 
